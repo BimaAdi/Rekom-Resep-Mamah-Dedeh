@@ -12,4 +12,3 @@ soup = BeautifulSoup(data.text, 'html.parser')
 for item in soup.select('div[class="item-recipe"] figcaption a'):
     print(item.attrs['href'])
     print('---------------')
-
