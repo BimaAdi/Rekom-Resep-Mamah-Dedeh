@@ -1,2 +1,6 @@
 .vscode
 .ipynb_checkpoints
+fastAPI-rekomendasi-resep/__pycache__/
+next-rekomendasi-resep/node_modules/
+next-rekomendasi-resep/.next/
+
