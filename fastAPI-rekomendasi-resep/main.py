@@ -35,7 +35,7 @@ def cari_resep(bahan_bahan: str):
     hasil = pd.Series(np.zeros((len(data2))))
     for item in bahan:
         hasil += data2['bahan_resep'].str.contains(item).map({False:0, True:1})
-    index_search = hasil.sort_values(ascending=False).head(10).index
+    index_search = hasil.sort_values(ascending=False).head(50).index
     return data[['image_url', 'title_resep']].loc[index_search].to_dict('records')
 
 

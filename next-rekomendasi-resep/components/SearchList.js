@@ -17,8 +17,8 @@ class SearchList extends Component {
                                     <p>{item.title_resep}</p>
                                 </div>
                                 <div className="card-action">
-                                    <Link href="/resep/[pid]" as={`/resep/${item.title_resep}`} style={{cursor: 'pointer'}}>
-                                        <a>Lihat Resep</a>
+                                    <Link href="/resep/[pid]" as={`/resep/${item.title_resep}`} >
+                                        <a style={{cursor: 'pointer'}}>Lihat Resep</a>
                                     </Link>
                                 </div>
                             </div>

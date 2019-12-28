@@ -7,11 +7,13 @@ const search = (props) => {
     return (
         <React.Fragment>
             <Head>
+                <meta name="description" content={`Makanan yang menggunakan bahan ${props.input}`} />
+                <meta name="keywords" content={`${props.input},Makanan`} />
                 <link rel="stylesheet" href="/css/materialize.min.css" />
                 <script src="/js/materialize.min.js"/>
                 <title>Rekom - {props.input}</title>
             </Head>
-            <SearchPage input={props.input} listResep={props.listResep} from={''} to={''} />
+            <SearchPage input={props.input} listResep={props.listResep} />
         </React.Fragment>
     )
 

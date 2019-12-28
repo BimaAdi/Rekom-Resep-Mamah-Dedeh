@@ -1,16 +1,15 @@
 import React from 'react'
-// import { useRouter } from 'next/router'
 import Head from 'next/head'
 import axios from 'axios';
 import ResepPage from '../../components/ResepPage'
 
 const resep = (props) => {
-  // const router = useRouter()
-  // const { pid } = router.query
 
   return (
   <div>
       <Head>
+      <meta name="description" content={props.resep.title_resep} />
+      <meta name="keywords" content={`${props.resep.title_resep}, resep, bahan, makanan`} />
       <link rel="stylesheet" href="/css/materialize.min.css" />
       <script src="/js/materialize.min.js"/>
       <title>Rekom - {props.resep.title_resep}</title>
