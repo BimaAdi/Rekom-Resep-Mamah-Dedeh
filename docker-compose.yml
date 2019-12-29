@@ -1,0 +1,12 @@
+version: "3"
+services:
+  api:
+    container_name: rekom-api
+    build: docker-fastApi-rekomendasi-resep
+    ports:
+      - '8000:8000'
+  view:
+    container_name: rekom-view
+    build: docker-next-rekomendasi-resep
+    ports:
+      - '3000:3000' 

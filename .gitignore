@@ -3,4 +3,6 @@
 fastAPI-rekomendasi-resep/__pycache__/
 next-rekomendasi-resep/node_modules/
 next-rekomendasi-resep/.next/
-
+docker-fastAPI-rekomendasi-resep/__pycache__/
+docker-next-rekomendasi-resep/node_modules/
+docker-next-rekomendasi-resep/.next/
