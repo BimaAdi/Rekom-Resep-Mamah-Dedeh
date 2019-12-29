@@ -36,3 +36,4 @@ terdapat 2 cara bisa dengan cara manual atau menggunakan docker
     1. Jalankan terminal atau docker virtual box di folder tersebut.
     1. Pada terminal/docker virtual box jalankan `docker-compose up`. Jika mendapat permission denied gunakan sudo `sudo docker-compose up`.
     1. Aplikasi akan muncul pada browser di `http://localhost:3000/` dan api pada `http://localhost:8000/docs`.
+    1. Untuk menghentikan aplikasi pada terminal/docker virtual box tekan `ctrl + c`. Setelah itu masukan command `docker-compose down` atau `sudo docker-compose down`.
