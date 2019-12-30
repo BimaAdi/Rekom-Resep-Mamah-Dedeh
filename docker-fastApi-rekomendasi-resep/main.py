@@ -8,7 +8,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 app = FastAPI()
 origins = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://view:3000"
 ]
 app.add_middleware(
     CORSMiddleware,
