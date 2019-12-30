@@ -3,12 +3,12 @@ from starlette.middleware.cors import CORSMiddleware
 import pandas as pd
 import numpy as np
 
+from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 
 app = FastAPI()
 origins = [
-    "http://localhost:3000",
-    "http://view:3000"
+    "http://localhost:3000"
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -17,17 +17,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-data = pd.read_csv('dataset/dataset_ayam_resepkoki.csv')
+
+# Deklarasi data yang digunakan
+data = pd.read_csv('dataset/df_gabungan.csv')
 data2 = data[['title_resep', 'bahan_resep']].copy()
 
+# Persiapan data untuk cosine similarity
 count_vec = CountVectorizer()
+count_vec_title = count_vec.fit_transform(data['title_resep'])
 
-count_vec_bahan_resep = count_vec.fit_transform(data['title_resep'])
-
-from sklearn.metrics.pairwise import cosine_similarity
-
-cos_sim = cosine_similarity(count_vec_bahan_resep)
-
+cos_sim = cosine_similarity(count_vec_title)
 cos_sim_df = pd.DataFrame(cos_sim, index=data['title_resep'], columns=data['title_resep'])
 
 @app.get("/search/{bahan_bahan}")
@@ -51,7 +50,6 @@ def get_rekomendasi(nama_resep):
     for rekom in list(cos_sim_df[nama_resep].sort_values(ascending=False).iloc[1:7].index):
         ls_image_url.append(data[data['title_resep'] == rekom]['image_url'].values[0])
 
-    print(ls_image_url)
     output = pd.DataFrame({
         'title_resep':list(cos_sim_df[nama_resep].sort_values(ascending=False).iloc[1:7].index),
         'image_url':ls_image_url
