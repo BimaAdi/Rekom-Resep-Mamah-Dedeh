@@ -17,7 +17,7 @@ class SearchBox extends Component {
                         <input type="text" className="validate" value={input} onChange={(e) => this.props.inputOnChange(e.target.value)}/>
                         <label htmlFor="email">Masukan bahan yang anda miliki</label>
                     </div>
-                    <Link href={`/search/${input.split(" ").join(",")}`}>
+                    <Link href={`/search/${input.split(" ").join(",")}?page=1`}>
                         <a className="waves-effect waves-light btn">Cari Resep</a>
                     </Link>
                 </div>

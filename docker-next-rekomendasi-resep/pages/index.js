@@ -12,7 +12,7 @@ const Home = () => {
         <script src="/js/materialize.min.js"/>
         <title>Rekom Mamah Dedeh</title>
       </Head>
-      <SearchPage input={''} listResep={[]}/>
+      <SearchPage input={''} listResep={[]} page={0}/>
     </React.Fragment>
   )
 } 

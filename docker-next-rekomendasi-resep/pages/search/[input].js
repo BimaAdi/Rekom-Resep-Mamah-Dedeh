@@ -13,7 +13,7 @@ const search = (props) => {
                 <script src="/js/materialize.min.js"/>
                 <title>Rekom - {props.input}</title>
             </Head>
-            <SearchPage input={props.input} listResep={props.listResep} />
+            <SearchPage input={props.input} listResep={props.listResep} page={props.page}/>
         </React.Fragment>
     )
 
@@ -21,9 +21,9 @@ const search = (props) => {
 
 search.getInitialProps = async (context) => {
     try {
-        const { input } = context.query;
+        const { input, page } = context.query;
         let res = await axios.get(`http://api:8000/search/${input}`);
-        return {input: input, listResep: res.data};
+        return {input: input, listResep: res.data, page: parseInt(page, 10)};
     } catch(err){
         console.log(err)
     }

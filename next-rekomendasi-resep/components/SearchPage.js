@@ -8,7 +8,7 @@ class SearchPage extends Component {
     state = {
         input: this.props.input.split(",").join(" "),
         listResep: this.props.listResep,
-        currentPage: 1
+        currentPage: this.props.page
     }
 
     inputOnChange = (text) => {
@@ -17,15 +17,6 @@ class SearchPage extends Component {
             listResep: this.state.listResep,
             currentPage: this.state.currentPage
         });
-    }
-
-    changePagination = (n) => {
-        window.scroll(0, 0);
-        this.setState({
-            input: this.state.input,
-            listResep: this.state.listResep,
-            currentPage: n
-        })
     }
 
     limitData = (page) => {
@@ -51,7 +42,7 @@ class SearchPage extends Component {
                     listResep.length !== 0 ? <SearchList listResep={this.limitData(currentPage)} /> : ''
                 }
                 {
-                    listResep.length !== 0 ? <Pagination currentPage={currentPage} listLength={listResep.length} changePagination={this.changePagination} /> : ''
+                    listResep.length !== 0 ? <Pagination currentPage={currentPage} listLength={listResep.length}  input={this.props.input.split(",").join(" ")}/> : ''
                 }
             </div>
         </React.Fragment>
